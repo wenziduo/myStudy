@@ -1,0 +1,14 @@
+{
+  "name": "binstudy",
+  "version": "1.0.0",
+  "description": "bin 学习demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "q-cli": "./bin/q-cli.js"
+  },
+  "author": "caiwenduo",
+  "license": "ISC"
+}
