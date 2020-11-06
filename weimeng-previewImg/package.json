@@ -1,0 +1,11 @@
+{
+  "name": "weimeng-previewimg",
+  "version": "1.0.0",
+  "description": "微萌前端公用图片预览组件",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "caiwenduo",
+  "license": "ISC"
+}
