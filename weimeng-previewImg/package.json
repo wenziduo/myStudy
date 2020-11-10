@@ -1,6 +1,6 @@
 {
   "name": "weimeng-hosp-previewimg",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "private": false,
   "description": "微萌前端公用图片预览组件",
   "keywords": [
@@ -8,20 +8,46 @@
     "javascript",
     "预览组件"
   ],
-  "main": "lib/index.tsx",
+  "main": "build/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "dist": "tsc",
+    "build": "webpack --mode production --config ./webpack-config/index.js"
   },
   "author": "caiwenduo",
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.6",
+    "npm-plugin-template": "^1.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.11.0",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-runtime": "^6.26.0",
+    "css-loader": "^4.2.0",
     "dts-generator": "^3.0.0",
-    "typescript": "^4.0.5"
+    "express": "^4.17.1",
+    "happypack": "^5.0.1",
+    "html-webpack-plugin": "^4.3.0",
+    "less": "^3.12.2",
+    "less-loader": "^6.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "style-loader": "^2.0.0",
+    "ts-loader": "^8.0.11",
+    "typescript": "^4.0.5",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-dev-server": "^3.11.0"
   }
 }

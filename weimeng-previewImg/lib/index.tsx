@@ -95,7 +95,7 @@ export default class PreviewPicture extends React.Component<any, any> {
           zoomSpeed={0.25}
           noNavbar={noNavbar || newImgList.length < 2}
           changeable={newImgList.length > 1}
-          defaultImg={{ width: 100, height: 100 }}
+          // defaultImg={{ width: 100, height: 100 }}
         />
       </div>
     )

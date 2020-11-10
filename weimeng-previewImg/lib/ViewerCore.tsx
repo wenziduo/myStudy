@@ -6,9 +6,9 @@ import ViewerToolbar, { defaultToolbars } from './ViewerToolbar';
 import ViewerProps, { ImageDecorator, ToolbarConfig } from './ViewerProps';
 import Icon, { ActionType } from './Icon';
 import * as constants from './constants';
-import Abbr from '../abbr';
+// import Abbr from '../abbr';
 
-import { browserPrint } from '../../utils/print';
+// import { browserPrint } from '../../utils/print';
 
 
 import './index.less';
@@ -658,7 +658,10 @@ export default class ViewerCore extends React.Component<ViewerProps, ViewerCoreS
             {activeImg.alt && typeof (activeImg.alt) === 'string' ? activeImg.alt : null}
             {activeImg.showOtherInfo && activeImg.showOtherInfo.length ? activeImg.showOtherInfo.map((item, i) => {
               return (
-                <div key={i}><strong>{item.label}：</strong><Abbr text={item.value} length={30} /></div>
+                <div key={i}><strong>{item.label}：</strong>
+                  {item.value}
+                  {/* <Abbr text={item.value} length={30} /> */}
+                </div>
               )
             }) : null}
           </div>
