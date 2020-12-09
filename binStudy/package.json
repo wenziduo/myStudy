@@ -4,11 +4,15 @@
   "description": "bin 学习demo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ao": "set NODE_ENV=dev && node bin/ao"
   },
   "bin": {
     "q-cli": "./bin/q-cli.js"
   },
   "author": "caiwenduo",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
 }
