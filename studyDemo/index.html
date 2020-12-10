@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./promise-all.js"></script>
+    <script>
+        // setTimeout(() => {
+        //     console.log(1)
+        // })
+        // async function a() {
+        //     await new PromiseAll((resolve) => {
+        //     console.log(2)
+        //         resolve()
+        //     })
+        //     console.log(3)
+        // }
+        // a()
+
+        // new PromiseAll((resolve) => {
+        //     console.log(4)
+        //     resolve()
+        // })
+        // .then(res => {
+        //     console.log(5)
+        // })
+        // console.log(6)
+        const promiseAll = new PromiseAll((resolve) => {
+            resolve()
+        });
+        const promise = new Promise((resolve) => {
+            resolve()
+        });
+        PromiseAll.all([
+            new Promise((resolve) => {
+                setTimeout(resolve.bind(this, '001'), 200)
+            }),
+            new Promise((resolve) => {
+                setTimeout(resolve.bind(this, '002'), 300)
+            }),
+            new Promise((resolve) => {
+                setTimeout(resolve.bind(this, '003'), 400)
+            })
+        ]).then(res => {
+            console.log('res', res)
+        })
+        console.log('promiseAll', promiseAll)
+        console.log('promise', promise)
+    </script>
+</body>
+</html>
