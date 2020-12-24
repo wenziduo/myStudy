@@ -13,6 +13,7 @@
   "author": "caiwenduo",
   "license": "ISC",
   "devDependencies": {
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "shelljs": "^0.8.4"
   }
 }
