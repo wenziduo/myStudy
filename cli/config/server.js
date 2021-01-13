@@ -6,7 +6,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpackConfig = require('./webpack/webpack-development');
 const historyApiFallback = require('connect-history-api-fallback');
 const { createProxyMiddleware } = require('http-proxy-middleware');
-const devConfig = require('../server.config');
+const devConfig = require('../setting/server.config');
 
 const app = express();
 const complier = webpack(webpackConfig);

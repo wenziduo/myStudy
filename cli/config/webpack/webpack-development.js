@@ -8,8 +8,7 @@ const { merge } = require('webpack-merge');
 const webpackCommon = require('./webpack-common');
 const { indexJS } = require('../commonPath');
 const { stringify } = require('qs');
-const { webpackHotMiddleware } = require('../../server.config');
-
+const { webpackHotMiddleware } = require('../../setting/server.config');
 module.exports = merge(webpackCommon, {
   entry: ['webpack-hot-middleware/client?' + stringify(webpackHotMiddleware.config), indexJS],
   plugins: [

@@ -19,8 +19,8 @@ module.exports = merge(webpackCommon, {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.join(__dirname, '../../public'),
-          to: path.join(__dirname, '../../dist/public'),
+          from: path.join(rootPath, '/public'),
+          to: path.join(rootPath, '/dist/public'),
           globOptions: {
             ignore: ['.*'],
           },

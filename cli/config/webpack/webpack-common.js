@@ -10,8 +10,14 @@ const HappyPack = require('happypack'); // 导入多线程打包
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const happyThreadPool = HappyPack.ThreadPool({ size: osSize >= 8 ? 8 : osSize }); // 创建一个 HappyThreadPool，作为所有 loader 共用的线程池
-const { indexHTML, srcPath, indexJS, distPath, publicPath, antdComponentsPath } = require('../commonPath');
+const { indexHTML, srcPath, indexJS, distPath, publicPath, antdComponentsPath, rootPath } = require('../commonPath');
 const antdTheme = require('../antd-theme'); // antd 风格配置
+console.log('distPath', distPath)
+console.log('publicPath', publicPath)
+console.log('indexHTML', indexHTML)
+console.log('rootPath', rootPath)
+console.log('rootPath02', path.join(rootPath, '/public'))
+
 module.exports = {
   output: {
     path: distPath,
@@ -42,17 +48,17 @@ module.exports = {
   },
   plugins: [
     // 复制插件
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.join(__dirname, '../../public'),
-          to: path.join(__dirname, '../../dist/public'),
-          globOptions: {
-            ignore: ['.*'],
-          },
-        },
-      ],
-    }),
+    // new CopyWebpackPlugin({
+    //   patterns: [
+    //     {
+    //       from: path.join(rootPath, '/public'),
+    //       to: path.join(rootPath, '/dist/public'),
+    //       globOptions: {
+    //         ignore: ['.*'],
+    //       },
+    //     },
+    //   ],
+    // }),
     // html 插件
     new HtmlWebpackPlugin({
       template: indexHTML,
