@@ -57,12 +57,14 @@ program
 
 /* 启动项目 */
 program
-  .command("run <name> <server>")
+  .command("run <name> [otherDirs]")
   .description("启动项目")
-  .action((name, server) => {
-    inquirer.prompt(promptList).then((answers) => {
-      console.log("answers", answers); // 返回的结果
-    });
+  .action((name, otherDirs) => {
+    console.log('name', name)
+    console.log('otherDirs', otherDirs)
+    // inquirer.prompt(promptList).then((answers) => {
+    //   console.log("answers", answers); // 返回的结果
+    // });
     // const projectSetting = require("./project-setting");
     // // 判断是否存在该项目
     // const isHasProject = projectSetting.projects.some(
