@@ -1,33 +1,45 @@
 module.exports = {
-  "port": "3008",
+  "antdTheme": {
+    "@primary-color": "#1890ff",
+    "@link-color": "#1890ff",
+    "@success-color": "#52c41a",
+    "@warning-color": "#faad14",
+    "@error-color": "#f5222d",
+    "@font-size-base": "14px",
+    "@heading-color": "rgba(0, 0, 0, 0.85)",
+    "@text-color": "rgba(0, 0, 0, 0.65)",
+    "@text-color-secondary": "rgba(0, 0, 0, 0.45)",
+    "@disabled-color": "rgba(0, 0, 0, 0.25)",
+    "@border-radius-base": "3px",
+    "@border-color-base": "#d9d9d9",
+    "@box-shadow-base": "0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05)"
+  },
+  "cssModules": false,
+  "port": "3009",
   "proxy": {
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/spd": "/spd"
+    },
     "dev": {
-      "from": "/b2b",
-      "to": "",
-      "secure": false,
-      "changeOrigin": true,
-      "pathRewrite": {
-        "^/b2b": "/b2b"
-      }
+      "from": "/spd",
+      "to": "https://spd-reconfiguration.weimeng-hosp.com"
     },
     "test": {
-      "from": "/b2b",
-      "to": "",
-      "secure": false,
-      "changeOrigin": true,
-      "pathRewrite": {
-        "^/b2b": "/b2b"
-      }
+      "from": "/spd",
+      "to": "https://spd-reconfiguration-test.weimeng-hosp.com"
     },
     "local": {
-      "from": "/b2b",
-      "to": "",
-      "secure": false,
-      "changeOrigin": true,
-      "pathRewrite": {
-        "^/b2b": "/b2b"
-      }
+      "from": "/spd",
+      "to": "http://127.0.0.1:8081"
     }
   },
-  "currentPath": "D:\\workspace\\weimeng-components\\weimeng-test"
+  "currentPath": "D:\\workspace\\weimeng-components\\weimeng-spd",
+  "entryPath": "./src/index.tsx",
+  "outPath": "./dist",
+  "htmlPath": "./src/index.ejs",
+  "srcPath": "./src",
+  "cssMoudle": true,
+  "cssMoudles": true
 }

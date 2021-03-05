@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button onclick="goA()">a页面</button>
+  <button onclick="goB()">b页面</button>
+  <button onclick="goC()">c页面</button>
+  <button onclick="goC()">c页面</button>
+  <a href="#/d">d页面</a>
+  <a href="#/e">e页面</a>
+  <div id="box"></div>
+  <div id="root"></div>
+</body>
+<script>
+  let dom = document.getElementById('box');
+  function goA() {
+    // 传入3个参数：路由参数或自定义的数据， title的标题，要跳转的路径
+    history.pushState({ page: 'A' }, 'a页面', '/a');
+    dom.innerHTML = 'a 页面';
+  }
+  function goB() {
+    history.pushState({ page: 'B' }, 'b页面', '/b');
+    dom.innerHTML = 'b 页面';
+  }
+  function goC() {
+    history.pushState({ page: 'C' }, 'c页面', '/c');
+    dom.innerHTML = 'c 页面';
+  }
+  // 当用户点击浏览器的后退按钮时，触发操作
+  window.onpopstate = (e) => {
+    console.log(e.state);
+    if (e.state.page === 'A') {
+      history.pushState(null, null, document.URL);
+    }
+  };
+  let content = document.getElementById("root");
+  window.addEventListener('hashchange', () => {
+    console.log('hashChange')
+    content.innerHTML = location.hash
+  })
+</script>
+
+</html>

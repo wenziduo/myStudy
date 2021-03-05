@@ -1,16 +1,16 @@
-const express = require('express');
-const colors = require('colors');
-const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-const webpackConfig = require('./webpack/webpack-development');
-const historyApiFallback = require('connect-history-api-fallback');
-const { createProxyMiddleware } = require('http-proxy-middleware');
-const devConfig = require('../setting/server.config');
+const express = require("express");
+const colors = require("colors");
+const webpack = require("webpack");
+const webpackDevMiddleware = require("webpack-dev-middleware");
+const webpackHotMiddleware = require("webpack-hot-middleware");
+const webpackConfig = require("./webpack/webpack-development");
+const historyApiFallback = require("connect-history-api-fallback");
+const { createProxyMiddleware } = require("http-proxy-middleware");
+const devConfig = require("../setting/server.config");
 
 const app = express();
 const complier = webpack(webpackConfig);
-console.log(colors.blue('当前环境：' + process.env.NODE_ENV));
+console.log(colors.blue("当前环境：" + process.env.NODE_ENV));
 // 配置proxy转发
 if (devConfig.proxy) {
   app.use(
@@ -19,13 +19,17 @@ if (devConfig.proxy) {
       secure: devConfig.proxy.secure,
       changeOrigin: devConfig.proxy.changeOrigin,
       pathRewrite: devConfig.proxy.pathRewrite,
-    }),
+    })
   );
 }
 // 重定向地址
 if (devConfig.historyApiFallback) {
   app.use(
-    historyApiFallback(devConfig.historyApiFallback === true ? { index: 'index.html' } : devConfig.historyApiFallback),
+    historyApiFallback(
+      devConfig.historyApiFallback === true
+        ? { index: "index.html" }
+        : devConfig.historyApiFallback
+    )
   );
 }
 // 使用 webpackDevMiddleware 中间件
@@ -37,5 +41,8 @@ app.use(webpackHotMiddleware(complier, devConfig.webpackHotMiddleware));
 app.use(express.static(devConfig.distPath));
 
 app.listen(devConfig.port, function () {
-  console.log('project will running at ' + colors.blue('http://localhost:' + devConfig.port));
+  console.log(
+    "project will running at " +
+      colors.blue("http://localhost:" + devConfig.port)
+  );
 });

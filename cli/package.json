@@ -5,10 +5,10 @@
   "main": "index.js",
   "bin": {
     "test-cli": "./index.js",
-    "wm-hot": "./bin/hot.js"
+    "wm-server": "./bin/wm-server.js"
   },
   "scripts": {
-    "build": "webpack --node-args='--max-old-space-size=8192' --mode=production --config config/webpack/webpack-production.js --profile -p --colors",
+    "build": "webpack --mode=production --config config/webpack/webpack-production.js --profile -p --colors",
     "dev": "cross-env NODE_ENV=dev node config/server.js",
     "test": "cross-env NODE_ENV=test node config/server.js",
     "local": "cross-env NODE_ENV=local node config/server.js"
@@ -40,6 +40,7 @@
     "connect-history-api-fallback": "^1.6.0",
     "copy-webpack-plugin": "^6.1.0",
     "cross-env": "^7.0.2",
+    "cross-spawn": "^7.0.3",
     "css-loader": "^4.2.0",
     "eslint": "^7.7.0",
     "eslint-config-airbnb": "^18.2.0",
